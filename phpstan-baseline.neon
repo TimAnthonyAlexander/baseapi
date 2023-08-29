@@ -1,0 +1,101 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/model/AbstractResponse/AbstractResponseModel.php
+
+		-
+			message: "#^Call to static method get\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\module\\\\ContextCache\\\\ContextCache\\.$#"
+			count: 2
+			path: src/model/Entity/EntityModel.php
+
+		-
+			message: "#^Call to static method isset\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\module\\\\ContextCache\\\\ContextCache\\.$#"
+			count: 2
+			path: src/model/Entity/EntityModel.php
+
+		-
+			message: "#^Call to static method set\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\module\\\\ContextCache\\\\ContextCache\\.$#"
+			count: 2
+			path: src/model/Entity/EntityModel.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 4
+			path: src/model/Entity/EntityModel.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/model/File/FileModel.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/model/Optional/OptionalModel.php
+
+		-
+			message: "#^Call to static method addSkillForUser\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\model\\\\UserSkill\\\\UserSkillModel\\.$#"
+			count: 1
+			path: src/model/User/UserModel.php
+
+		-
+			message: "#^Call to static method createVerification\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\model\\\\Verification\\\\VerificationModel\\.$#"
+			count: 2
+			path: src/model/User/UserModel.php
+
+		-
+			message: "#^Call to static method sendNotification\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\NotificationModel\\.$#"
+			count: 1
+			path: src/model/User/UserModel.php
+
+		-
+			message: "#^Call to static method subscribeUser\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\model\\\\Subscription\\\\SubscriptionModel\\.$#"
+			count: 1
+			path: src/model/User/UserModel.php
+
+		-
+			message: "#^Method timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\UserModel\\:\\:signIn\\(\\) should return timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\UserModel but returns timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\UserModel\\|null\\.$#"
+			count: 1
+			path: src/model/User/UserModel.php
+
+		-
+			message: "#^Parameter \\#1 \\$user of static method timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\UserModel\\:\\:verifyEmail\\(\\) expects timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\UserModel, timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\UserModel\\|null given\\.$#"
+			count: 1
+			path: src/model/User/UserModel.php
+
+		-
+			message: "#^Call to static method sendNotification\\(\\) on an unknown class timanthonyalexander\\\\BaseApi\\\\model\\\\User\\\\NotificationModel\\.$#"
+			count: 1
+			path: src/module/Page/Page.php
+
+		-
+			message: "#^Offset 'class' does not exist on array\\{function\\: string, line\\?\\: int, file\\?\\: string, class\\?\\: class\\-string, type\\?\\: '\\-\\>'\\|'\\:\\:', args\\?\\: array, object\\?\\: object\\}\\.$#"
+			count: 2
+			path: src/module/Profiler/Profiler.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$elements \\(array\\<string, string\\>\\) of method timanthonyalexander\\\\BaseApi\\\\module\\\\QueryBuilder\\\\QueryBuilder\\:\\:insert\\(\\) is incompatible with type array\\<int, mixed\\>\\.$#"
+			count: 1
+			path: src/module/QueryBuilder/QueryBuilder.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$elements \\(array\\<string, string\\>\\) of method timanthonyalexander\\\\BaseApi\\\\module\\\\QueryBuilder\\\\QueryBuilder\\:\\:update\\(\\) is incompatible with type array\\<int, mixed\\>\\.$#"
+			count: 1
+			path: src/module/QueryBuilder/QueryBuilder.php
+
+		-
+			message: "#^PHPDoc tag @return with type array\\<string\\>\\|int\\|string is not subtype of native type array\\.$#"
+			count: 1
+			path: src/module/QueryBuilder/QueryBuilder.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: src/module/QueueMail/QueueMailWorker.php
+
+		-
+			message: "#^Property timanthonyalexander\\\\BaseApi\\\\module\\\\UriService\\\\UriService\\:\\:\\$uri \\(League\\\\Uri\\\\Uri\\) does not accept League\\\\Uri\\\\Contracts\\\\UriInterface\\.$#"
+			count: 3
+			path: src/module/UriService/UriService.php

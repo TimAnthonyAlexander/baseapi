@@ -1,0 +1,11 @@
+/config/system.json
+/config/feature.json
+vendor
+.idea
+.phpunit.result.cache
+logs
+src/module/Coallix/requests.json
+.php-cs-fixer.cache
+src/module/CoallixNonChat/requests.json
+src/module/CoallixNonChat/messages.json
+scratch/*

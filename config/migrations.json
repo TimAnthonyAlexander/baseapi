@@ -1,0 +1,8 @@
+{
+    "migrations": [
+        "CREATE TABLE IF NOT EXISTS dbcache (id varchar(255) NOT NULL, `value` longtext NOT NULL DEFAULT (''), `created` datetime DEFAULT CURRENT_TIMESTAMP, `expiry` longtext NOT NULL DEFAULT (''), PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;",
+        "CREATE TABLE IF NOT EXISTS file (id varchar(255) NOT NULL, `name` longtext NOT NULL DEFAULT (''), `type` longtext NOT NULL DEFAULT (''), `created` datetime DEFAULT CURRENT_TIMESTAMP, `content` longtext NOT NULL DEFAULT (''), `updated` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;",
+        "CREATE TABLE IF NOT EXISTS mail (id varchar(255) NOT NULL, `to` longtext NOT NULL DEFAULT (''), `from` longtext NOT NULL DEFAULT (''), `fromName` longtext NOT NULL DEFAULT (''), `subject` longtext NOT NULL DEFAULT (''), `template` longtext NOT NULL DEFAULT (''), `signature` longtext NOT NULL DEFAULT (''), `body` longtext NOT NULL DEFAULT (''), `created` datetime DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;",
+        "CREATE TABLE IF NOT EXISTS queuemail (id varchar(255) NOT NULL, `sendDate` longtext NOT NULL DEFAULT (''), `sent` tinyint(1) NOT NULL DEFAULT 0, `to` longtext NOT NULL DEFAULT (''), `from` longtext NOT NULL DEFAULT (''), `fromName` longtext NOT NULL DEFAULT (''), `subject` longtext NOT NULL DEFAULT (''), `template` longtext NOT NULL DEFAULT (''), `signature` longtext NOT NULL DEFAULT (''), `body` longtext NOT NULL DEFAULT (''), `created` datetime DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;"
+    ]
+}
