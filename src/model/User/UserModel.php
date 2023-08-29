@@ -20,7 +20,7 @@ use timanthonyalexander\BaseApi\module\UserState\UserState;
 class UserModel extends EntityModel
 {
     public string $name = '';
-    public string $description = 'New to coalla';
+    public string $description = 'New to baseapi';
     public string $email = '';
     public string $role = 'guest';
     public bool $isVerified = false;

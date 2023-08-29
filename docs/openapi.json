@@ -5,5 +5,42 @@
         "description": "This is the openapi definition of the baseapi API",
         "version": "1.0.0"
     },
-    "paths": []
+    "paths": {
+        "\/ping.json": {
+            "post": {
+                "summary": "Ping",
+                "description": "\/ping.json",
+                "requestBody": {
+                    "content": {
+                        "multipart\/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "pingMessage": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": []
+            },
+            "get": {
+                "summary": "Ping",
+                "description": "\/ping.json",
+                "parameters": [
+                    {
+                        "name": "pingMessage",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": []
+            }
+        }
+    }
 }
