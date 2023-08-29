@@ -1,0 +1,9 @@
+image: php:8.2.3
+pipelines:
+    default:
+        - step:
+            name: Test other branches
+            script:
+                - apt update
+                - apt install -y ca-certificates apt-transport-https software-properties-common gnupg2
+                - curl -I https://api.example.com?route=/ping.json |grep " 200"

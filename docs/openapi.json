@@ -1,0 +1,9 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "baseapi API",
+        "description": "This is the openapi definition of the baseapi API",
+        "version": "1.0.0"
+    },
+    "paths": []
+}

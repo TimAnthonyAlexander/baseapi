@@ -1,0 +1,107 @@
+#!/bin/bash
+
+echo '#!/bin/bash'>.git/hooks/pre-commit
+echo './config/pre-commit'>>.git/hooks/pre-commit
+
+chmod +x .git/hooks/pre-commit
+status=$?
+if [ $status -ne 0 ]; then
+  sudo chmod +x .git/hooks/pre-commit
+fi
+
+chmod -R 777 .
+status=$?
+if [ $status -ne 0 ]; then
+  sudo chmod -R 777 .
+fi
+
+
+echo "Copyright baseapi 2023 - Tim Anthony Alexander"
+
+echo "-----------------------------"
+echo "--------- Migration --------- "
+echo "Executing migrations..."
+composer migrations &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    echo ">>>> ERROR: Migration"
+    exit 1
+fi
+echo -e "-----------------------------\n"
+
+echo "-----------------------------"
+echo "------ Code Beautifier ------ "
+echo "Executing code beautifier..."
+composer cbf &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    echo ">>>> ERROR: Code Beautifier"
+    echo ">>>> Re-executing code beautifier..."
+    composer cbf
+    exit 1
+fi
+echo -e "-----------------------------\n"
+
+echo "-----------------------------"
+echo "------- Code Standard -------"
+echo "Executing code standard..."
+composer cs-fix &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    echo ">>>> ERROR: Code Standard"
+    echo ">>>> Re-executing code standard..."
+    composer cs-fix
+    exit 1
+fi
+echo -e "-----------------------------\n"
+
+echo "-----------------------------"
+echo "--------- Code Fix ----------"
+echo "Executing code fix..."
+composer fix-src &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    echo ">>>> ERROR: Code Fix"
+    echo ">>>> Re-executing code fix..."
+    composer fix-src
+    exit 2
+fi
+echo -e "-----------------------------\n"
+
+echo "-----------------------------"
+echo "--------- PHPSTAN -----------"
+echo "Executing analyse..."
+composer analyse-src &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    echo ">>>> ERROR: PHPSTAN"
+    echo ">>>> Re-executing analyse..."
+    composer analyse-src
+    exit 3
+fi
+echo -e "-----------------------------\n"
+
+echo "-----------------------------"
+echo "--------- PHPUNIT -----------"
+echo "Executing tests..."
+composer test &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    echo ">>>> ERROR: PHPUNIT"
+    echo ">>>> Re-executing tests..."
+    composer test
+    exit 3
+fi
+echo -e "-----------------------------\n"
+
+php ./scripts/writeroutes.php
+
+echo "-----------------------------"
+echo "Git status before commit:"
+git status --short
+echo -e "-----------------------------\n"
+
+# Green success message
+echo "-----------------------------"
+echo -e "\033[0;32mSuccess\033[0m"
+echo -e "-----------------------------\n"
